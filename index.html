@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>W</title>
+  <link rel="stylesheet" href="index.css" />
+  <!-- GSAP CDN -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script> -->
+</head>
+<body>
+  <p style="color: #fff; padding: 10px 0; font-size: 40px; text-align: center; font-weight: 100;">
+    To See Weathre Enter Your City Name
+  </p>
+  <div class="card">
+    <div class="search">
+      <input
+        type="search"
+        placeholder="Enter your city name"
+        id="search"
+        spellcheck="false"
+      />
+      <button id="searchBtn">
+        <img src="/images/search.png" alt="search" />
+      </button>
+    </div>
+    <div class="weathre">
+      <img id="w-icon" src="/images/rain.png" class="w-icon" alt="rain" />
+      <h1 id="temp" class="temp">27°C</h1>
+      <h2 id="city" class="city">Mumbai</h2>
+      <div class="details">
+        <div class="col">
+          <img src="/images/humidity.png" alt="humidity" />
+          <div>
+            <p id="humidity" class="humidity">50%</p>
+            <p class="humidity">Humidity</p>
+          </div>
+        </div>
+        <div class="col">
+          <img src="/images/wind.png" alt="wind" />
+          <div>
+            <p id="wind" class="wind">15 km/h</p>
+            <p class="wind">Wind speed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p style="color: #00f87c; box-shadow: 5px 5px #00f87c;">Build by shirshir islam</p>
+  
+  <script src="index.js"></script>
+  
+  <!-- GSAP Animations -->
+  <script>
+    // Animate the top paragraph
+    gsap.from("p:first-of-type", { duration: 1, opacity: 0, y: -50, ease: "power2.out" });
+    
+    // Animate the card container
+    gsap.from(".card", { duration: 1, opacity: 0, y: 50, ease: "power2.out", delay: 0.5 });
+    
+    // Animate the weather image
+    gsap.from(".weathre img", { duration: 1, opacity: 0, scale: 0.5, ease: "back.out(1.7)", delay: 1 });
+    
+    // Animate the temperature and city name
+    gsap.from(".temp", { duration: 1, opacity: 0, x: -50, ease: "power2.out", delay: 1.2 });
+    gsap.from(".city", { duration: 1, opacity: 0, x: 50, ease: "power2.out", delay: 1.4 });
+    
+    // Animate the detail columns with a staggered effect
+    gsap.from(".details .col", {
+      duration: 1,
+      opacity: 0,
+      scale: 0.8,
+      ease: "power2.out",
+      delay: 1.6,
+      stagger: 0.2,
+    });
+    
+    // Animate the footer text
+    gsap.from("p:last-of-type", { duration: 1, opacity: 0, y: 50, ease: "power2.out", delay: 2 });
+  </script>
+</body>
+</html>
